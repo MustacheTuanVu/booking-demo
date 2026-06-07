@@ -1,0 +1,12 @@
+export enum MsgType {
+    MESSENGER = 'MESSENGER',
+    INFO_USER = 'INFO_USER',
+    INFO_SEAT_ORDER = 'INFO_SEAT_ORDER',
+    ORDER_CANCELED = 'ORDER_CANCELED',
+    PAID_INVOICE = 'PAID_INVOICE'
+}
+
+export enum ListenType {
+    GET_SOCKET_ID='GET_SOCKET_ID',
+    DELETE_SKIO='DELETE_SKIO'
+}

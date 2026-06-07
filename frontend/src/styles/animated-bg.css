@@ -1,0 +1,118 @@
+/* Optimized animated background pattern */
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(171, 141, 89, 0.08) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(171, 141, 89, 0.05) 2%, transparent 0%);
+  background-size: 100px 100px;
+  opacity: 0.3;
+  z-index: -1;
+  will-change: transform;
+  animation: patternMove 180s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(500px, 500px, 0);
+  }
+}
+
+/* Enhanced gradient overlay for carousel images */
+.carousel-gradient-overlay {
+  position: relative;
+}
+
+.carousel-gradient-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Optimized text animations for carousel */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 15px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideRightFade {
+  from {
+    opacity: 0;
+    transform: translate3d(-15px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.4s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRightFade 0.4s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Progress bar animation for carousel */
+@keyframes progressBar {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Scroll highlight effect */
+.scroll-highlight {
+  box-shadow: 0 0 20px rgba(171, 141, 89, 0.3);
+  transition: box-shadow 0.3s ease;
+}

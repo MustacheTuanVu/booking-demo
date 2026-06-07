@@ -1,0 +1,9 @@
+export const FILE_UPLOAD_AVATAR_USER = './public/uploads/avatar';
+export const FILE_UPLOAD_AVATAR_ARTISTS = './public/uploads/artists';
+export const FILE_UPLOAD_ITEM_MENU = './public/uploads/item';
+export const FILE_UPLOAD_CATEGORY_ITEM = './public/uploads/category_item';
+export const FILE_UPLOAD_MENU_ORDER = './public/uploads/menu_order';
+export const FILE_UPLOAD_BANNER_EVENT = './public/uploads/event';
+export const FILE_UPLOAD_LOGO_EVENT = './public/uploads/logo';
+export const SUPPORTED_IMAGE_FORMATS = ['.png', '.jpg', '.jpeg'];
+export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB

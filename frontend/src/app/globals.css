@@ -1,0 +1,337 @@
+/* Import custom styles */
+@import '../styles/hide-scrollbar.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove the old class-based font implementation
+.__className_47efe9 {
+  font-family: Roboto Condensed,Roboto Condensed Fallback;
+  font-style: normal
+}
+*/
+
+:root {
+  --clr-bg: #f5f5f5;
+  --clr-bg-1: #AB8D59;
+  --clr-bg-2: #38383D;
+  --clr-bg-3: #f1f1f1;
+  --clr-bg-4: #2c2c2c80;
+  --clr-bg-5: #000000;
+  --clr-bg-6: #fba4a8;
+  --clr-bg-7: #987947;
+  --clr-bg-8: #ffffff;
+  --clr-bg-9: #ff0000;
+  --clr-bg-10: #e61616;
+
+  --clr-txt-1: #f5f5f5;
+  --clr-txt-2: #4B5563;
+  --clr-txt-3: #38383D;
+  --clr-txt-4: #AB8D59;
+  --clr-txt-5: #EC7D30;
+  --clr-txt-6: #1B98E0;
+
+}
+
+/* Apply Roboto Condensed as the default body font */
+@layer base {
+  html {
+    font-family: var(--font-roboto-condensed), system-ui, sans-serif;
+  }
+}
+
+/* Policy content styling */
+.policy-content h2 {
+  @apply text-xl font-bold text-gray-800 mb-4 pt-3;
+}
+
+.policy-content h3 {
+  @apply text-lg font-bold text-gray-700 mt-6 mb-3;
+}
+
+.policy-content p {
+  @apply text-gray-600 mb-4 leading-relaxed;
+}
+
+.policy-content ul, .policy-content ol {
+  @apply pl-6 mb-4 space-y-2;
+}
+
+.policy-content ul {
+  @apply list-disc;
+}
+
+.policy-content ol {
+  @apply list-decimal;
+}
+
+.policy-content li {
+  @apply text-gray-600 leading-relaxed;
+}
+
+.policy-content a {
+  @apply text-gold-600 hover:text-gold-700 transition-colors;
+}
+
+.custom-dots li button::before {
+  color: #fff !important; /* Đặt màu trắng */
+  font-size: 10px;        /* Chỉnh kích thước dot nếu muốn */
+}
+.custom-dots li button {
+  background-color: black; /* Màu nền đen */
+  border-radius: 50%;
+  width: 12px; /* Kích thước chấm */
+  height: 12px;
+  opacity: 0.7;
+  border: 2px solid black; /* Viền đen (hoặc trắng nếu bạn muốn nổi bật) */
+}
+
+/* Chấm đang chọn - màu đen, viền trắng để nổi bật */
+.custom-dots li.slick-active button {
+  background-color: 'var(--clr-bg-1)';
+  color: black; /* Thuộc tính này thường không ảnh hưởng nhiều, nhưng có thể để đen */
+  border: 2px solid white; /* Đổi sang viền trắng để dễ phân biệt */
+  opacity: 1;
+}
+
+@keyframes ring {
+  0% { transform: rotate(0deg); }
+  1% { transform: rotate(30deg); }
+  3% { transform: rotate(-28deg); }
+  5% { transform: rotate(34deg); }
+  7% { transform: rotate(-32deg); }
+  9% { transform: rotate(30deg); }
+  11% { transform: rotate(-28deg); }
+  13% { transform: rotate(26deg); }
+  15% { transform: rotate(-24deg); }
+  17% { transform: rotate(22deg); }
+  19% { transform: rotate(-20deg); }
+  21% { transform: rotate(18deg); }
+  23% { transform: rotate(-16deg); }
+  25% { transform: rotate(14deg); }
+  27% { transform: rotate(-12deg); }
+  29% { transform: rotate(10deg); }
+  31% { transform: rotate(-8deg); }
+  33% { transform: rotate(6deg); }
+  35% { transform: rotate(-4deg); }
+  37% { transform: rotate(2deg); }
+  39% { transform: rotate(-1deg); }
+  41% { transform: rotate(1deg); }
+  43% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Shimmer effect for premium elements */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(212, 175, 55, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 3s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Text shadow for better readability on images */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Carousel continuous glow effect */
+@keyframes subtle-glow {
+  0% { box-shadow: 0 10px 30px -5px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 20px 40px -5px rgba(0,0,0,0.4), 0 0 20px rgba(171,141,89,0.4); }
+  100% { box-shadow: 0 10px 30px -5px rgba(0,0,0,0.3); }
+}
+
+.carousel-glow {
+  animation: subtle-glow 5s ease-in-out infinite;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Scroll highlight animation for better visibility when navigating to sections */
+@keyframes highlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(171, 141, 89, 0); }
+  20% { box-shadow: 0 0 0 8px rgba(171, 141, 89, 0.4); }
+  40% { box-shadow: 0 0 0 4px rgba(171, 141, 89, 0.2); }
+  60% { box-shadow: 0 0 0 12px rgba(171, 141, 89, 0.4); }
+  80% { box-shadow: 0 0 0 6px rgba(171, 141, 89, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(171, 141, 89, 0); }
+}
+
+.scroll-highlight {
+  animation: highlightPulse 2s ease-out;
+  border-radius: 8px;
+  position: relative;
+  z-index: 10;
+}
+
+.jodit-wysiwyg {
+  color: black !important;
+}
+
+/* Responsive sidebar height for desktop */
+.max-h-screen-sidebar {
+  /* Default for smaller screens - fixed height with scrolling */
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+/* Auto-expanding sidebar for larger screens */
+@media (min-height: 900px) {
+  .max-h-screen-sidebar {
+    /* Allow content to determine height */
+    max-height: none;
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+/* Print styles for policy page */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    background: white;
+    color: black;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .policy-content {
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+
+  .policy-content h2 {
+    font-size: 18pt;
+    margin-top: 20pt;
+  }
+
+  .policy-content h3 {
+    font-size: 14pt;
+  }
+
+  .policy-content p,
+  .policy-content li {
+    font-size: 12pt;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}

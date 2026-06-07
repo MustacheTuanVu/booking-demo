@@ -1,0 +1,17 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -qq && apt-get install -y -qq sshpass
+    - sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
+        cd booking-online &&
+        git fetch origin &&
+        git pull origin dev1 &&
+        git checkout dev1 &&
+        git status &&
+        docker-compose down &&
+        docker-compose up -d --build"
+  only:
+    - dev1

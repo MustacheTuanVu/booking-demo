@@ -1,0 +1,41 @@
+node_modules/
+dist/
+.next/
+out/
+build/
+coverage/
+.nyc_output/
+
+# env
+.env
+.env.*
+.env.local
+
+# logs
+*.log
+logs/
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+.settings/
+.c9/
+.cursor/
+*.sublime-workspace
+*.swp
+*.swo
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# misc
+*.pem
+.pnp
+.pnp.*
+.yarn/
